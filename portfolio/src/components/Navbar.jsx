@@ -8,7 +8,7 @@ function Navbar() {
     const screenWidth = window.innerWidth;
 
     return (
-        <nav className='bg-gray-800 audiowide rounded-full w-19/20 mx-auto mt-4 pr-4 py-2 outline-3 outline-offset-2 outline-solid outline-[#cc2bfb]'>
+        <nav className='bg-gray-800 audiowide fixed rounded-full w-29/30 mt-4 left-1/2 -translate-x-1/2 pr-4 py-2 outline-3 outline-offset-2 outline-solid outline-[#cc2bfb]'>
             {
                 screenWidth > 640 ? (
                     <div className="h-12 md:h-16 items-center flex justify-between">
@@ -19,6 +19,7 @@ function Navbar() {
                         <div className='hidden sm:block font-medium'>
                             <a className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]' href="#home">HOME</a>
                             <a className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]' href="#about">ABOUT</a>
+                            <a className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]' href="#skills">SKILLS</a>
                             <a className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]' href="#projects">PROJECTS</a>
                             <a className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]' href="#contact">CONTACT</a>
                         </div>
@@ -38,19 +39,19 @@ function Navbar() {
                             <X onClick={() => setIsOpen(!isOpen)} className={`${isOpen ? "block" : "hidden"} fixed top-10 right-10 z-99 font-bold text-white`} />
                             <div className={`${isOpen ? "block" : "hidden"} block sm:hidden bg-gray-800 border-2 border-[#cc2bfb] space-y-8 pb-3 absolute top-0 right-0 h-full w-2/3 flex flex-col items-start justify-center space-y-4 px-10`}>
                                 <hr className="text-[#cc2bfb] w-full h-1 border-2" />
-                                <a className='text-gray-100 text-4xl text-wrap' href="#home">Home</a>
+                                <a className='text-gray-100 text-3xl text-wrap' href="#home">HOME</a>
                                 <hr className="text-[#cc2bfb] w-full h-1 border-2" />
-                                <a className='text-gray-100 text-4xl text-wrap' href="#about">About</a>
+                                <a className='text-gray-100 text-3xl text-wrap' href="#about">ABOUT</a>
                                 <hr className="text-[#cc2bfb] w-full h-1 border-2" />
-                                <a className='text-gray-100 text-4xl text-wrap' href="#projects">Projects</a>
+                                <a className='text-gray-100 text-3xl text-wrap' href="#skills">SKILLS</a>
                                 <hr className="text-[#cc2bfb] w-full h-1 border-2" />
-                                <a className='text-gray-100 text-4xl text-wrap' href="#contact">Contact</a>
+                                <a className='text-gray-100 text-3xl text-wrap' href="#projects">PROJECTS</a>
                                 <hr className="text-[#cc2bfb] w-full h-1 border-2" />
-
+                                <a className='text-gray-100 text-3xl text-wrap' href="#contact">CONTACT</a>
+                                <hr className="text-[#cc2bfb] w-full h-1 border-2" />
                             </div>
                         </div>
                     </div>
-
                 )
             }
         </nav >
