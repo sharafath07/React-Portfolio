@@ -1,10 +1,16 @@
 import React from 'react'
 import Image from '../assets/myPhoto.jpeg'
+import { motion } from 'motion/react'
 
 
 function Home() {
+    const button = {
+        whileHover: { scale: 1.05 },
+        whileTap: { scale: 0.9 },
+        transition: { type: 'spring', stiffness: 300 }
+    }
     return (
-        <div id='home' className='h-screen flex items-center flex-col orbitron justify-center text-4xl font-bold text-gray-200'>
+        <motion.div layout id='home' className='h-screen flex items-center flex-col orbitron justify-center text-4xl font-bold text-gray-200'>
             <div className='flex items-center justify-center gap-10'>
                 <img className="w-50 h-50 object-cover rounded-full outline outline-2 outline-offset-3 hover:outline-offset-0 outline-[#cc2bfb]" src={Image} alt="" />
                 <div className='flex gap-2 flex-col items-center justify-center text-gray-500'>
@@ -15,10 +21,10 @@ function Home() {
             </div>
 
             <div className='flex gap-5 text-lg font-bold text-black border-none mt-10'>
-                <a href='#projects'><button className='bg-white p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-300'>View Projects</button></a>
-                <a href='#contact'> <button className='bg-white p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-300'>Contact Me</button></a>
+                <a href='#projects'><motion.button variants={button} transition={{ type: 'spring', stiffness: 300 }} whileHover="whileHover" whileTap="whileTap" className='bg-white p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-80'>View Projects</motion.button></a>
+                <a href='#contact'> <motion.button variants={button} transition={{ type: 'spring', stiffness: 300 }} whileHover="whileHover" whileTap="whileTap" className='bg-white p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-80'>Contact Me</motion.button></a>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
