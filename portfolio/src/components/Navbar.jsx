@@ -14,11 +14,11 @@ function Navbar() {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className='bg-gray-800 audiowide fixed rounded-full w-29/30 mt-4 left-1/2 -translate-x-1/2 pr-4 py-2 outline-3 outline-offset-2 outline-solid outline-[#cc2bfb]'>
+            className='bg-gray-800 z-99 audiowide fixed rounded-full w-29/30 mt-4 left-1/2 -translate-x-1/2 pr-4 py-2 outline-3 outline-offset-2 outline-solid outline-[#cc2bfb]'>
             {
                 screenWidth > 640 ? (
                     <div className="h-12 md:h-16 items-center flex justify-between">
-                        <motion.a initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1, ease: "backInOut", delay: 1 }} className='flex items-center justify-start cursor-pointer' href="#">
+                        <motion.a initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "backInOut", delay: 1 }} className='flex items-center justify-start cursor-pointer' href="#">
                             <img src={profile} alt="" className="w-15 md:w-19 relative -top-2 left-1" />
                             <h1 className='text-xl md:text-3xl text-[#cc2bfb] pl-2 font-medium' href="#">SHARAFATH</h1>
                         </motion.a>

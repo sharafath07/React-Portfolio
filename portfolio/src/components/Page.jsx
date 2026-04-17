@@ -1,6 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Home from './Home'
+import About from './About'
+import Skills from './Skills'
+import Projects from './Projects'
+import Contact from './Contact'
 
 
 function Page() {
@@ -8,6 +12,10 @@ function Page() {
         <div>
             <Navbar />
             <Home />
+            <About />
+            {/* <Skills />
+            <Projects />
+            <Contact /> */}
         </div>
     )
 }
