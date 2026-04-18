@@ -13,9 +13,9 @@ function Page() {
             <Navbar />
             <Home />
             <About />
-            {/* <Skills />
+            <Skills />
             <Projects />
-            <Contact /> */}
+            <Contact />
         </div>
     )
 }

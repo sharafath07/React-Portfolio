@@ -13,7 +13,7 @@ export default function About() {
                 viewport={{ once: true }}
                 className="max-w-5xl mx-auto text-center md:text-left"
             >
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 underline underline-offset-8 decoration">
+                <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-10 underline underline-offset-8 decoration">
                     About <span className="text-[#cc2bfb] underline underline-offset-8 decoration">Me</span>
                 </h2>
                 <p className="text-gray-400 text-sm md:text-base font-mono leading-relaxed mb-4 text-justify">
