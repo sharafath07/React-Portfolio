@@ -4,14 +4,14 @@ export default function About() {
     return (
         <div
             id="about"
-            className="min-h-screen orbitron flex items-center justify-center px-6 relative overflow-hidden"
+            className="min-h-screen orbitron flex items-center justify-center relative overflow-hidden"
         >
             <motion.div
                 initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="max-w-5xl mx-auto text-center md:text-left"
+                className="max-w-5/6 mx-auto text-center md:text-left"
             >
                 <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-10 underline underline-offset-8 decoration">
                     About <span className="text-[#cc2bfb] underline underline-offset-8 decoration">Me</span>

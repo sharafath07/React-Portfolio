@@ -25,7 +25,7 @@ function Skills() {
 
     return (
         <div ref={scrollRef}>
-            <motion.div initial="offscreen" whileInView="onscreen" exit={{ opacity: 0 }} transition={{ duration: 0.8 }} viewport={{ root: scrollRef, amount: 0.8 }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center px-6 relative overflow-hidden'>
+            <motion.div initial="offscreen" whileInView="onscreen" exit={{ opacity: 0 }} transition={{ duration: 0.8 }} viewport={{ root: scrollRef, amount: 0.8 }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
                 <div>
                     <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
