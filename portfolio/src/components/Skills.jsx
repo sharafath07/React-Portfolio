@@ -21,24 +21,20 @@ function Skills() {
         { name: 'GitHub', image: github }
     ];
 
-    const scrollRef = useRef(null);
-
     return (
-        <div ref={scrollRef}>
-            <motion.div initial="offscreen" whileInView="onscreen" exit={{ opacity: 0 }} transition={{ duration: 0.8 }} viewport={{ root: scrollRef, amount: 0.8 }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
-                <div>
-                    <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-                        {skills.map((skill, index) => (
-                            <div key={index} className='flex flex-col items-center border border-[#cc2bfb] rounded-lg p-4 hover:bg-[#2a2a2a] transition duration-300'>
-                                <img src={skill.image} alt={skill.name} className='w-16 h-16 mb-2 contain' />
-                                <p className='text-lg font-semibold text-gray-500'>{skill.name}</p>
-                            </div>
-                        ))}
-                    </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} viewport={{ once: true }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
+            <div>
+                <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
+                <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+                    {skills.map((skill, index) => (
+                        <div key={index} className='flex flex-col items-center border border-[#cc2bfb] rounded-lg p-4 hover:bg-[#2a2a2a] transition duration-300'>
+                            <img src={skill.image} alt={skill.name} className='w-16 h-16 mb-2 contain' />
+                            <p className='text-lg font-semibold text-gray-500'>{skill.name}</p>
+                        </div>
+                    ))}
                 </div>
-            </motion.div>
-        </div>
+            </div>
+        </motion.div>
     )
 }
 

@@ -9,7 +9,7 @@ export default function About() {
             <motion.div
                 initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
                 viewport={{ once: true }}
                 className="max-w-5/6 mx-auto text-center md:text-left"
             >
