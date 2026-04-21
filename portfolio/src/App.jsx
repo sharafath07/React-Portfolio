@@ -19,6 +19,7 @@ function App() {
     <AnimatePresence mode="wait">
       {isLoading ? <Loading key="loader" /> : <Page key="home" />}
     </AnimatePresence>
+    // <Page />
   )
 }
 

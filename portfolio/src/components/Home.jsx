@@ -11,8 +11,8 @@ function Home() {
     return (
         <motion.div id='home' className='h-screen flex items-center flex-col orbitron justify-center text-4xl font-bold text-gray-200'>
             <div className='flex items-center justify-center gap-10'>
-                <motion.img initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -500 }} transition={{ duration: 0.8, ease: "easeIn" }} viewport={{ once: true }} className="w-50 h-50 object-cover rounded-full outline outline-2 outline-offset-3 hover:outline-offset-0 outline-[#cc2bfb]" src={Image} alt="" />
-                <motion.div initial={{ opacity: 0, x: 500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 500 }} transition={{ duration: 0.8, ease: "easeIn" }} viewport={{ once: true }} className='flex gap-2 flex-col items-center justify-center text-gray-500'>
+                <motion.img initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className="w-50 h-50 object-cover rounded-full outline outline-2 outline-offset-3 hover:outline-offset-0 outline-[#cc2bfb]" src={Image} alt="" />
+                <motion.div initial={{ opacity: 0, x: 500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className='flex gap-2 flex-col items-center justify-center text-gray-500'>
                     <h1 className="text-3xl">Hello World!</h1>
                     <h1 className="text-3xl">I'm <span className="text-4xl font-bold underline underline-offset-2 text-[#cc2bfb]">Sharafath Ahammed V</span></h1>
                     <h2 className='text-2xl'>Frontend Developer</h2>

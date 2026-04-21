@@ -33,7 +33,7 @@ function Contact() {
 
     return (
         <div id='contact' className='h-[110vh] w-screen flex orbitron tracking-wide items-center justify-center relative overflow-hidden text-center text-gray-400 w-2/3'>
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} className='border-2 scale-95 outline-2 outline-[#cc2bfb] outline-offset-4 p-10 rounded-4xl border-gray'>
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }} viewport={{ amount: 0.7 }} className='border-2 scale-95 outline-2 outline-[#cc2bfb] outline-offset-4 p-10 rounded-4xl border-gray'>
                 <h1 className='text-3xl md:text-5xl font-bold text-[#cc2bfb] mb-4 underline underline-offset-4 decoration-[#cc2bfb]'>Contact <span>Me</span></h1>
                 <p className='text-gray-400 text-md mb-8'>Feel free to reach out to me through any of the platforms below!</p>
                 <form className='flex flex-col items-center gap-4 justify-center'>

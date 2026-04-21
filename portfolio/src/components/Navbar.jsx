@@ -19,7 +19,7 @@ function Navbar() {
                 {
                     screenWidth > 640 ? (
                         <div className="h-12 md:h-16 items-center flex justify-between">
-                            <motion.a initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "backInOut", delay: 1 }} className='flex items-center justify-start cursor-pointer' href="#">
+                            <motion.a initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "backInOut", delay: 0.5 }} className='flex items-center justify-start cursor-pointer' href="#">
                                 <img src={profile} alt="" className="w-15 md:w-19 relative -top-2 left-1" />
                                 <h1 className='text-xl md:text-3xl text-[#cc2bfb] pl-2 font-medium' href="#">SHARAFATH</h1>
                             </motion.a>
@@ -28,7 +28,7 @@ function Navbar() {
                                     <motion.a
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.8, delay: 0.5 * navLinks.indexOf(link), ease: "backInOut" }}
+                                        transition={{ duration: 0.8, delay: 0.3 * navLinks.indexOf(link), ease: "easeIn" }}
                                         key={link}
                                         className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]'
                                         href={`#${link.toLowerCase()}`}
