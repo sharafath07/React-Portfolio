@@ -122,7 +122,7 @@ function Projects() {
                 {projects.map((project, index) => (
                     <div
                         key={index}
-                        className="snap-center min-w-[85%] md:min-w-[60%] lg:min-w-[40%] 
+                        className="snap-center min-w-[80%] md:min-w-[60%] lg:min-w-[40%] 
                  border border-gray-700 rounded-2xl 
                  bg-white/5 backdrop-blur-lg 
                  hover:shadow-[0_0_25px_#cc2bfb]/30 hover:border-[#cc2bfb] 
@@ -159,7 +159,7 @@ function Projects() {
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-4 py-2 text-white bg-[#cc2bfb] text-base rounded-lg  
+                                className="px-4 py-2 text-white bg-[#cc2bfb] text-xs md:text-sm rounded-lg  
                                 shadow-md border-none"
                             >
                                 View Project
@@ -176,7 +176,7 @@ function Projects() {
                                 href={project.source}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-4 py-2 border border-[#cc2bfb] text-[#cc2bfb] rounded-lg"
+                                className="px-4 py-2 border border-[#cc2bfb] text-[#cc2bfb] rounded-lg text-xs md:text-sm"
                             >
                                 Source Code
                             </motion.a>

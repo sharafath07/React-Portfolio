@@ -15,9 +15,9 @@ const Loader = () => {
       {letters.map((letter, index) => (
         <motion.div
           key={index}
-          initial={{ y: -800 }}
+          initial={{ y: '-100vh' }}
           animate={{ y: 0 }}
-          exit={{ y: 800 }}
+          exit={{ y: '-100vh' }}
           transition={{
             duration: 0.8,
             ease: "easeInOut",
