@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from '../assets/myPhoto.jpeg'
-import { easeIn, motion } from 'motion/react'
+import { motion } from 'framer-motion'
 
 
 function Home() {

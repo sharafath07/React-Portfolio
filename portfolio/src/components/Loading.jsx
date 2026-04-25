@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 
 const Loader = () => {
   const letters = ['', 'S', 'H', 'A', 'R', 'A', 'F', 'A', 'T', 'H', ''];

@@ -7,7 +7,7 @@ import git from '../assets/skills/git.svg'
 import github from '../assets/skills/github.png'
 import tailwind from '../assets/skills/tailwind-css.png'
 import bootstrap from '../assets/skills/bootstrap.svg'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 
 function Skills() {
     const skills = [

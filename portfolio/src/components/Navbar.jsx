@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import profile from '../assets/profile.svg'
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 
 function Navbar() {

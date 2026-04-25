@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import netflix from '../assets/projects/netflix.png'
 import bmi from '../assets/projects/bmi.png'
 import password from '../assets/projects/password-generator.png'

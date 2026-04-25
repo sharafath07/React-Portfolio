@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './components/Loading'
 import Page from './components/Page'
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
