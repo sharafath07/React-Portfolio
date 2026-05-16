@@ -9,8 +9,8 @@ export default function About() {
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                viewport={{ amount: 0.7 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                viewport={{ amount: 0.3, once: true }}
                 className="max-w-5/6 mx-auto text-center md:text-left"
             >
                 <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-10 underline underline-offset-8 decoration">

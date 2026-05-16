@@ -22,7 +22,7 @@ function Skills() {
     ];
 
     return (
-        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeInOut" }} viewport={{ amount: 0.7 }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
+        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
             <div>
                 <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
                 <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
