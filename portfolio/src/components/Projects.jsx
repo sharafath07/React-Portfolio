@@ -8,6 +8,9 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
+import forever from '../assets/projects/forever.png'
+import yemKey from '../assets/projects/yem-key.png'
+import Web3d from '../assets/projects/3d.png'
 import netflix from '../assets/projects/netflix.png'
 import bmi from '../assets/projects/bmi.png'
 import password from '../assets/projects/password-generator.png'
@@ -26,6 +29,27 @@ function Projects() {
     const containerRef = useRef(null)
 
     const projects = [
+        {
+            name: 'Forever',
+            tools: ['React', 'CSS', 'Express', 'MongoDB'],
+            image: forever,
+            link: 'https://forever-plum-ten.vercel.app/',
+            source: 'https://github.com/sharafath07/Forever-e-commerce'
+        },
+        {
+            name: 'Yem Key',
+            tools: ['React', 'CSS', 'Express', 'MongoDB'],
+            image: yemKey,
+            link: 'https://autodeluxreact.vercel.app/',
+            source: 'https://github.com/sharafath07/car-website'
+        },
+        {
+            name: '3D Web',
+            tools: ['HTML', 'JavaScript', 'CSS', 'Three.js'],
+            image: Web3d,
+            link: 'https://sharafath07.github.io/3d-web/',
+            source: 'https://github.com/sharafath07/3d-web'
+        },
         {
             name: 'Netflix Clone',
             tools: ['React', 'CSS'],
