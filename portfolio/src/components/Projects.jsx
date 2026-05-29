@@ -171,7 +171,7 @@ function Projects() {
                 pagination={{ clickable: true }}
                 navigation={true}
                 autoplay={{
-                    delay: 3000,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
                 loop={projects.length > 3}
