@@ -55,8 +55,8 @@ function Contact() {
     };
 
     return (
-        <div id='contact' className='h-[90vh] md:h-[110vh] w-screen flex flex-col space-y-20 orbitron tracking-wide items-center justify-between relative overflow-hidden text-center text-gray-400 w-2/3'>
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} className='border-2 scale-95 outline-2 outline-[#cc2bfb] outline-offset-4 p-10 rounded-4xl border-gray'>
+        <div id='contact' className='h-[90vh] md:h-[110vh] w-screen flex flex-col space-y-20 orbitron tracking-wide items-center justify-between relative overflow-hidden text-center text-gray-400 w-2/3 bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'>
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} className='border-2 bg-black scale-95 outline-2 outline-[#cc2bfb] outline-offset-4 p-10 rounded-4xl border-gray'>
                 <h1 className='text-3xl md:text-5xl font-bold text-[#cc2bfb] mb-4 underline underline-offset-4 decoration-[#cc2bfb]'>Contact <span>Me</span></h1>
                 <p className='text-gray-400 text-md mb-8'>Feel free to reach out to me through any of the platforms below!</p>
                 <form ref={form} onSubmit={sendEmail} className='flex flex-col items-center gap-4 justify-center'>
@@ -82,7 +82,7 @@ function Contact() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className='hover:bg-[#cc2bfb] hover:text-white transition-colors duration-80 p-2 rounded-full border-2'
+                        className='hover:bg-[#cc2bfb] origin-center hover:text-white hover:rotate-15 transition-colors duration-80 p-2 rounded-full border-2'
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.8 }}
                         transition={{ duration: 0.8, type: 'spring' }}

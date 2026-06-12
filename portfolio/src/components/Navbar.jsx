@@ -10,7 +10,7 @@ function Navbar() {
     const navLinks = ["HOME", "ABOUT", "SKILLS", "PROJECTS", "CONTACT"]
 
     return (
-        <div className='bg-black fixed h-20 md:h-25 top-0 left-0 right-0 z-50'>
+        <div className='fixed h-20 md:h-25 top-0 left-0 right-0 z-50'>
             <motion.nav
                 initial={{ y: -100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -30,7 +30,7 @@ function Navbar() {
                                         animate={{ opacity: 1 }}
                                         transition={{ duration: 0.8, delay: 0.3 * navLinks.indexOf(link), ease: "easeIn" }}
                                         key={link}
-                                        className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]'
+                                        className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#cc2bfb] hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]'
                                         href={`#${link.toLowerCase()}`}
                                     >
                                         {link}

@@ -4,7 +4,7 @@ export default function About() {
     return (
         <div
             id="about"
-            className="min-h-screen orbitron flex items-center justify-center relative overflow-hidden"
+            className="min-h-screen orbitron flex items-center justify-center relative overflow-hidden bg-linear-30 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%"
         >
             <motion.div
                 initial={{ opacity: 0, y: 50 }}

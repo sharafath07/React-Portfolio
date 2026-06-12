@@ -151,7 +151,7 @@ function Projects() {
             viewport={{ amount: 0.3, once: true }}
             ref={containerRef}
             id='projects'
-            className='w-screen flex orbitron tracking-wide flex-col items-center justify-center relative overflow-hidden text-center text-gray-400 px-4 py-20'
+            className='w-screen flex orbitron tracking-wide flex-col items-center justify-center relative overflow-hidden text-center text-gray-400 px-4 py-20 bg-linear-30 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'
         >
             <div>
                 <h1 className='text-3xl md:text-5xl font-bold text-[#cc2bfb] mb-4 underline underline-offset-4 decoration-[#cc2bfb]'>
@@ -168,6 +168,7 @@ function Projects() {
                 centeredSlides={true}
                 slidesPerView={1.15}
                 spaceBetween={20}
+                effect="coverflow"
                 pagination={{ clickable: true }}
                 navigation={true}
                 autoplay={{
@@ -192,8 +193,8 @@ function Projects() {
                     <SwiperSlide key={index}>
                         <div
                             className="w-full snap-center border border-gray-700 rounded-2xl 
-                            bg-white/5 backdrop-blur-lg overflow-hidden
-                            hover:shadow-[0_0_25px_#cc2bfb]/30 
+                            bg-black backdrop-blur-lg overflow-hidden
+                            hover:shadow-[0_0_25px_#cc2bfb]/30
                             hover:border-[#cc2bfb] transition duration-300 pb-4"
                         >
                             <img
