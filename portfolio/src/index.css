@@ -43,3 +43,23 @@ body::-webkit-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  background: rgba(204, 43, 251, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid #cc2bfb;
+  color: #000 !important;
+  content: "" !important;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #cc2bfb;
+  scale: 1.1;
+}

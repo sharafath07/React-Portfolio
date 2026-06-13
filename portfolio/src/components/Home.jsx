@@ -11,7 +11,7 @@ function Home() {
         whileTap: { scale: 0.9 }
     }
     return (
-        <motion.div id='home' className='h-screen flex flex-col items-center justify-around mt-15 orbitron text-4xl font-bold text-gray-200 bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'>
+        <motion.div id='home' className='h-screen flex flex-col items-center justify-around pt-15 orbitron text-4xl font-bold text-gray-200 bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'>
             <div className='flex items-center justify-center gap-5 ml-10 md:ml-0'>
                 <motion.img initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className="w-30 h-30 md:w-50 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 md:h-50 object-contain " src={Image} alt="" />
                 <motion.div initial={{ opacity: 0, x: 500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className='flex gap-2 flex-col items-center sm:items-center justify-center text-gray-500'>

@@ -1,12 +1,18 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+    Navigation,
+    EffectCoverflow,
+    Autoplay,
+    Keyboard,
+    Mousewheel,
+} from "swiper/modules";
 
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
 
 import forever from '../assets/projects/forever.png'
 import yemKey from '../assets/projects/yem-key.png'
@@ -91,56 +97,56 @@ function Projects() {
             image: password,
             link: 'https://sharafath07.github.io/password-generator/',
             source: 'https://github.com/sharafath07/password-generator'
-        },
-        {
-            name: 'Bug Free',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: BugFree,
-            link: 'https://sharafath07.github.io/BugFree/',
-            source: 'https://github.com/sharafath07/BugFree'
-        },
-        {
-            name: 'Tic Tac Toe',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Tic,
-            link: 'https://sharafath07.github.io/Tic-Tac-Toe/',
-            source: 'https://github.com/sharafath07/Tic-Tac-Toe'
-        },
-        {
-            name: 'Todo App',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Todo,
-            link: 'https://sharafath07.github.io/Todo-App/',
-            source: 'https://github.com/sharafath07/Todo-App'
-        },
-        {
-            name: 'Rock Paper Scissor',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Rock,
-            link: 'https://sharafath07.github.io/Rock-paper-scissor/',
-            source: 'https://github.com/sharafath07/Rock-Paper-Scissor'
-        },
-        {
-            name: 'Blackjack Game',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Blackjack,
-            link: 'https://sharafath07.github.io/blackjack/',
-            source: 'https://github.com/sharafath07/blackjack'
-        },
-        {
-            name: 'Calculator',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Calculator,
-            link: 'https://sharafath07.github.io/Calculator/',
-            source: 'https://github.com/sharafath07/Calculator'
-        },
-        {
-            name: 'Counter App',
-            tools: ['HTML', 'CSS', 'JavaScript'],
-            image: Counter,
-            link: 'https://sharafath07.github.io/Counter-App/',
-            source: 'https://github.com/sharafath07/Counter-App'
         }
+        // {
+        //     name: 'Bug Free',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: BugFree,
+        //     link: 'https://sharafath07.github.io/BugFree/',
+        //     source: 'https://github.com/sharafath07/BugFree'
+        // },
+        // {
+        //     name: 'Tic Tac Toe',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Tic,
+        //     link: 'https://sharafath07.github.io/Tic-Tac-Toe/',
+        //     source: 'https://github.com/sharafath07/Tic-Tac-Toe'
+        // },
+        // {
+        //     name: 'Todo App',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Todo,
+        //     link: 'https://sharafath07.github.io/Todo-App/',
+        //     source: 'https://github.com/sharafath07/Todo-App'
+        // },
+        // {
+        //     name: 'Rock Paper Scissor',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Rock,
+        //     link: 'https://sharafath07.github.io/Rock-paper-scissor/',
+        //     source: 'https://github.com/sharafath07/Rock-Paper-Scissor'
+        // },
+        // {
+        //     name: 'Blackjack Game',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Blackjack,
+        //     link: 'https://sharafath07.github.io/blackjack/',
+        //     source: 'https://github.com/sharafath07/blackjack'
+        // },
+        // {
+        //     name: 'Calculator',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Calculator,
+        //     link: 'https://sharafath07.github.io/Calculator/',
+        //     source: 'https://github.com/sharafath07/Calculator'
+        // },
+        // {
+        //     name: 'Counter App',
+        //     tools: ['HTML', 'CSS', 'JavaScript'],
+        //     image: Counter,
+        //     link: 'https://sharafath07.github.io/Counter-App/',
+        //     source: 'https://github.com/sharafath07/Counter-App'
+        // }
     ]
 
     return (
@@ -164,30 +170,61 @@ function Projects() {
             </div>
 
             <Swiper
-                modules={[Navigation, Pagination, Autoplay]}
-                centeredSlides={true}
-                slidesPerView={1.15}
-                spaceBetween={20}
+                modules={[
+                    Navigation,
+                    EffectCoverflow,
+                    Autoplay,
+                    Keyboard,
+                    Mousewheel,
+                ]}
                 effect="coverflow"
-                pagination={{ clickable: true }}
+                centeredSlides={true}
+                loop={false}
+                grabCursor={true}
                 navigation={true}
                 autoplay={{
-                    delay: 5000,
+                    delay: 3000,
                     disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
                 }}
-                loop={projects.length > 3}
+                keyboard={{
+                    enabled: true,
+                }}
+                mousewheel={{
+                    releaseOnEdges: true,
+                    sensitivity: 1,
+                }}
+                coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 150,
+                    modifier: 2,
+                    scale: 0.9,
+                    slideShadows: false,
+                }}
                 breakpoints={{
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 16,
+                    },
                     640: {
-                        slidesPerView: 1.3,
+                        slidesPerView: 1.4,
+                        spaceBetween: 20,
                     },
                     768: {
-                        slidesPerView: 2.1,
+                        slidesPerView: 1.8,
+                        spaceBetween: 24,
                     },
                     1024: {
-                        slidesPerView: 2.4,
+                        slidesPerView: 2.2,
+                        spaceBetween: 30,
                     },
-                }} s
-                className='w-full mt-10 snap-x px-2 md:px-8'
+                    1280: {
+                        slidesPerView: 2.5,
+                        spaceBetween: 36,
+                    },
+                }}
+                className="w-full h-full mt-10 px-2 md:px-8"
             >
                 {projects.map((project, index) => (
                     <SwiperSlide key={index}>
