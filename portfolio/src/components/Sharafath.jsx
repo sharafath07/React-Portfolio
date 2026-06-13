@@ -10,6 +10,10 @@ function Sharafath() {
             animate="float"
             zoom={2}
             depth={0.15}
+            cursorOrbit
+            orbitStrength={0.5}
+            resetOnIdle
+            resetDelay={3}
         />
     )
 }

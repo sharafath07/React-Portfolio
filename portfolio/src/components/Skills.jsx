@@ -22,19 +22,21 @@ function Skills() {
     ];
 
     return (
-        <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'>
-            <div>
-                <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
-                <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-                    {skills.map((skill, index) => (
-                        <div key={index} className='flex flex-col items-center border border-[#cc2bfb] rounded-lg p-4 hover:bg-[#2a2a2a] transition duration-300'>
-                            <img src={skill.image} alt={skill.name} className='w-16 h-16 mb-2 contain' />
-                            <p className='text-lg font-semibold text-gray-500'>{skill.name}</p>
-                        </div>
-                    ))}
+        <div className="bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%">
+            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
+                <div>
+                    <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
+                    <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
+                        {skills.map((skill, index) => (
+                            <div key={index} className='flex flex-col items-center border border-[#cc2bfb] rounded-lg p-4 hover:bg-[#2a2a2a] transition duration-300'>
+                                <img src={skill.image} alt={skill.name} className='w-16 h-16 mb-2 contain' />
+                                <p className='text-lg font-semibold text-gray-500'>{skill.name}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </motion.div>
+            </motion.div>
+        </div>
     )
 }
 
