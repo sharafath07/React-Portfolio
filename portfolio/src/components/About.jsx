@@ -1,33 +1,21 @@
-import { motion } from "framer-motion";
+import portrait from '../assets/myPhoto.jpeg'
 
 export default function About() {
-    return (
-        <div className="bg-linear-30 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%">
-            <div
-                id="about"
-                className="min-h-screen orbitron flex items-center justify-center relative overflow-hidden"
-            >
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    viewport={{ amount: 0.3, once: true }}
-                    className="max-w-5/6 mx-auto text-center md:text-left"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-10 underline underline-offset-8 decoration">
-                        About <span className="text-[#cc2bfb] underline underline-offset-8 decoration">Me</span>
-                    </h2>
-                    <p className="text-gray-400 text-sm md:text-base font-mono leading-relaxed mb-4 text-justify">
-                        I am Sharafath Ahammed V, a passionate and dedicated student pursuing Software Development. I enjoy building modern, responsive, and user-friendly web applications.
-                    </p>
-
-                    <p className="text-gray-400 text-sm md:text-base font-mono leading-relaxed mb-6 text-justify">
-                        With a strong foundation in HTML, CSS, JavaScript, and React, I focus on creating clean UI and smooth user experiences. I am constantly learning new technologies and improving my skills to become a professional developer.
-                    </p>
-
-                </motion.div>
-
-            </div>
+  return (
+    <section id="about" aria-labelledby="about-title" className="border-y border-home-line bg-home-surface">
+      <div className="section-wrap grid items-center gap-10 md:grid-cols-[1.3fr_1fr] md:gap-20">
+        <div>
+          <h2 id="about-title" className="section-title">About Me</h2>
+          <div className="mt-6 max-w-prose space-y-4 text-lg leading-relaxed text-home-muted md:text-xl">
+            <p>I am <strong className="font-medium text-home-ink">Sharafath Ahammed V</strong>, a passionate and dedicated student pursuing Software Development. I enjoy building modern, responsive, and user-friendly web applications.</p>
+            <p>With a strong foundation in HTML, CSS, JavaScript, and React, I focus on creating clean UI and smooth user experiences. I am constantly learning new technologies and improving my skills to become a professional developer.</p>
+          </div>
         </div>
-    );
+        <div className="relative isolate aspect-[5/4] overflow-hidden rounded-3xl border border-home-line bg-home sm:aspect-[4/3]">
+          <img src={portrait} alt="Sharafath Ahammed V" loading="lazy" width="1203" height="1203"
+            className="image-fade-under absolute inset-0 size-full object-cover object-center" />
+        </div>
+      </div>
+    </section>
+  )
 }

@@ -1,8 +1,6 @@
-import React, { useRef } from 'react'
-import { Mail } from 'lucide-react';
+import { useRef } from 'react'
 import { FaInstagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
@@ -31,8 +29,7 @@ function Contact() {
         }
     ]
 
-    const formLabel = "text-xl cursor-pointer underline underline-offset-4 decoration-[#cc2bfb] text-gray-400 text-sm md:text-base"
-    const formInput = "w-full px-4 py-2 border-b-2 border-l-2 text-gray-400 bg-gray-800"
+    const formInput = 'w-full rounded-[10px] border border-home-line bg-home-base px-4 py-3 text-base text-home-ink caret-home-accent focus:border-home-accent'
 
     function sendEmail(e) {
         e.preventDefault();
@@ -55,45 +52,41 @@ function Contact() {
     };
 
     return (
-        <div classNAme="bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%">
-            <div id='contact' className='h-[90vh] md:h-[110vh] w-screen flex flex-col orbitron tracking-wide items-center justify-end space-y-10 relative overflow-hidden text-center text-gray-400 w-2/3'>
-                <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} className='border-2 bg-black scale-95 outline-2 outline-[#cc2bfb] outline-offset-4 p-10 rounded-4xl border-gray'>
-                    <h1 className='text-3xl md:text-5xl font-bold text-[#cc2bfb] mb-4 underline underline-offset-4 decoration-[#cc2bfb]'>Contact <span>Me</span></h1>
-                    <p className='text-gray-400 text-md mb-8'>Feel free to reach out to me through any of the platforms below!</p>
-                    <form ref={form} onSubmit={sendEmail} className='flex flex-col items-center gap-4 justify-center'>
-                        <label htmlFor="name" className={formLabel}>
-                            Name
-                        </label>
-                        <input id='name' type="text" name='name' autoComplete='name' className={formInput + " caret-[#cc2bfb]"} />
-                        <label htmlFor="email" className={formLabel}>
-                            Email
-                        </label>
-                        <input id='email' type="email" name='email' autoComplete='email' className={formInput + " caret-[#cc2bfb]"} />
-                        <label htmlFor="message" className={formLabel}>
-                            Message
-                        </label>
-                        <textarea id='message' name='message' rows="4" className={formInput + " caret-[#cc2bfb]"}></textarea>
-                        <motion.button whileHover={{ outline: '2px solid #cc2bfb', outlineOffset: '2px' }} whileTap={{ scale: 0.9, outline: "none" }} transition={{ duration: 0.8, type: 'spring' }} type="submit" className='bg-[#cc2bfb] text-white px-4 py-2 rounded mt-4'>Send Message</motion.button>
-                    </form>
-                </motion.div>
-                <div className='relative bottom-4 bg-gray-800 text-center p-4 h-14 mb-2 w-2/3 flex items-center justify-around gap-4 border-none rounded-full text-[#cc2bfb] text-2xl font-bold outline outline-2 outline-[#cc2bfb] outline-offset-4'>
-                    {contact.map((item, index) => (
-                        <motion.a
-                            key={index}
-                            href={item.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className='hover:bg-[#cc2bfb] origin-center hover:text-white hover:rotate-15 transition-colors duration-80 p-2 rounded-full border-2'
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.8 }}
-                            transition={{ duration: 0.8, type: 'spring' }}
-                        >
-                            {item.icon}
-                        </motion.a>
+        <section id="contact" aria-labelledby="contact-title" className="section-wrap grid items-start gap-10 md:grid-cols-[1fr_1.1fr] md:gap-16">
+            <div>
+                <h2 id="contact-title" className="section-title">Contact Me</h2>
+                <p className="mt-5 max-w-md text-lg leading-relaxed text-home-muted">
+                    Feel free to reach out to me through any of the platforms below!
+                </p>
+                <ul className="mt-7 flex flex-wrap gap-3">
+                    {contact.map(item => (
+                        <li key={item.name}>
+                            <a href={item.link} target="_blank" rel="noopener noreferrer" aria-label={item.name} title={item.name}
+                                className="grid size-12 place-items-center rounded-full border border-home-line bg-home-panel text-xl text-home-accent transition-colors hover:border-home-accent hover:bg-home-accent hover:text-home-accent-ink">
+                                {item.icon}
+                            </a>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </div>
-        </div>
+            <form ref={form} onSubmit={sendEmail} className="grid gap-5 rounded-2xl border border-home-line bg-home-panel p-5 sm:p-8">
+                <div className="grid gap-5 sm:grid-cols-2">
+                    <label className="grid gap-2 text-sm font-medium" htmlFor="name">
+                        Name
+                        <input id="name" name="name" type="text" autoComplete="name" className={formInput} />
+                    </label>
+                    <label className="grid gap-2 text-sm font-medium" htmlFor="email">
+                        Email
+                        <input id="email" name="email" type="email" autoComplete="email" className={formInput} />
+                    </label>
+                </div>
+                <label className="grid gap-2 text-sm font-medium" htmlFor="message">
+                    Message
+                    <textarea id="message" name="message" rows="5" className={formInput + ' resize-y'} />
+                </label>
+                <button type="submit" className="primary-action justify-self-start">Send Message</button>
+            </form>
+        </section>
     )
 }
 

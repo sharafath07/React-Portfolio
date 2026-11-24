@@ -1,34 +1,61 @@
-import React from 'react'
-import Image from '../assets/profile.svg'
-import { motion } from 'framer-motion'
-import Sharafath from './Sharafath.jsx'
-import Ahammed from './Ahammed.jsx'
+import { useEffect, useRef, useState } from 'react'
+import armor from '../assets/home/iron-man.webp'
+import portrait from '../assets/home/portrait.png'
+import { attachPortraitBrush } from './portraitBrush'
 
+const figureLayer = 'absolute inset-0 size-full object-cover object-bottom'
 
-function Home() {
-    const button = {
-        whileHover: { scale: 1.05 },
-        whileTap: { scale: 0.9 }
-    }
-    return (
-        <motion.div id='home' className='h-screen flex flex-col items-center justify-around pt-15 orbitron text-4xl font-bold text-gray-200 bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%'>
-            <div className='flex items-center justify-center gap-5 ml-10 md:ml-0'>
-                <motion.img initial={{ opacity: 0, x: -500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className="w-30 h-30 md:w-50 absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 md:h-50 object-contain " src={Image} alt="" />
-                <motion.div initial={{ opacity: 0, x: 500 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 500 }} transition={{ duration: 0.8, ease: "easeInOut" }} className='flex gap-2 flex-col items-center sm:items-center justify-center text-gray-500'>
-                    <h1 className="text-2xl md:text-3xl">I'm</h1>
-                    <div className='w-[100vw] h-[200px] flex '>
-                        <Sharafath className='w-full' />
-                        <Ahammed className='w-full' />
-                    </div>
-                </motion.div>
-            </div>
-
-            <motion.div initial={{ opacity: 0, y: 500 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 500 }} transition={{ duration: 0.8, ease: 'easeIn' }} viewport={{ once: true }} className='flex gap-5 text-lg font-bold text-black border-none mb-10'>
-                <a href='#projects'><motion.button variants={button} transition={{ type: 'spring', stiffness: 300 }} whileHover="whileHover" whileTap="whileTap" className='bg-white p-2 md:p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-80'>View Projects</motion.button></a>
-                <a href='#contact'> <motion.button variants={button} transition={{ type: 'spring', stiffness: 300 }} whileHover="whileHover" whileTap="whileTap" className='bg-white p-2 md:p-4 cursor-pointer rounded-xl outline outline-2 outline-offset-3 outline-[#cc2bfb] hover:bg-[#cc2bfb] active:outline-offset-0 transition duration-80'>Contact Me</motion.button></a>
-            </motion.div>
-        </motion.div>
-    )
+function Marquee({ children, className }) {
+  return (
+    <div className={`flex w-max whitespace-nowrap text-[clamp(54px,9.6vw,168px)] leading-none tracking-[-0.035em] uppercase motion-reduce:animate-none ${className}`}>
+      {Array.from({ length: 4 }, (_, index) => <span key={index} className="pr-[.3em]">{children}</span>)}
+    </div>
+  )
 }
 
-export default Home
+export default function Home() {
+  const heroRef = useRef(null)
+  const [showPortrait, setShowPortrait] = useState(false)
+
+  useEffect(() => {
+    if (!showPortrait) return attachPortraitBrush(heroRef.current)
+  }, [showPortrait])
+
+  return (
+    <section id="home" ref={heroRef} aria-labelledby="home-title"
+      className="relative isolate h-svh touch-pan-y overflow-hidden bg-home font-home leading-[normal] text-home-ink antialiased
+        brush-pointer:data-brush-enabled:cursor-none">
+      <h1 id="home-title" className="sr-only">Sharafath Ahammed V</h1>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-1/2 flex -translate-y-[58%] select-none
+        flex-col gap-[clamp(4px,1.2vw,18px)] home-compact:-translate-y-[62%]">
+        <Marquee className="animate-home-marquee text-[#514069]">I Am Iron Man</Marquee>
+        <Marquee className="animate-home-name font-medium">Sharafath Ahammed V</Marquee>
+      </div>
+      <div data-portrait={showPortrait} className="home-figure group/figure pointer-events-none absolute -bottom-[1cm] left-1/2 z-1
+        aspect-774/840 h-[min(94svh,133vw)] origin-bottom -translate-x-1/2 scale-97 [--armor-drop:10px]
+        home-compact:h-auto home-compact:w-[min(150vw,75svh)]">
+        <img className={`home-armor ${figureLayer} translate-y-(--armor-drop) group-data-brushing/figure:invisible group-data-[portrait=true]/figure:invisible`}
+          src={armor} width="774" height="840" fetchPriority="high"
+          alt="Iron Man in red and gold armor with illuminated eyes and arc reactor" aria-hidden={showPortrait} />
+        <img className={`home-portrait ${figureLayer} invisible scale-96  group-data-[portrait=true]/figure:visible`}
+          src={portrait} width="1203" height="1307"
+          alt="Sharafath Ahammed V in a charcoal T-shirt" aria-hidden={!showPortrait} />
+        <canvas className={`${figureLayer} invisible group-data-brushing/figure:visible`} aria-hidden="true" />
+      </div>
+      <button type="button" aria-label="Show full portrait"
+        className="absolute bottom-home-gutter left-home-gutter z-2 flex cursor-pointer items-center gap-2 text-[13px] text-home-muted
+          home-compact:bottom-[max(18px,env(safe-area-inset-bottom))] home-compact:left-1/2 home-compact:-translate-x-1/2
+          home-compact:rounded-full home-compact:bg-home-panel home-compact:px-3 home-compact:py-2
+          home-compact:whitespace-nowrap home-compact:text-home-ink"
+        aria-pressed={showPortrait} onClick={() => setShowPortrait(!showPortrait)}>
+        <span aria-hidden="true" className="size-2 rounded-full bg-home-accent" />
+        {showPortrait ? 'Show armor' : <>
+          <span className="touch-input:hidden">Move your cursor to reveal the portrait</span>
+          <span className="hidden touch-input:inline">Drag to reveal the portrait</span>
+        </>}
+      </button>
+      <div></div>
+
+    </section>
+  )
+}

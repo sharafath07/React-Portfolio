@@ -1,100 +1,73 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, Menu, X } from 'lucide-react';
-import profile from '../assets/profile.svg'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import ProgressBar from './ProgressBar'
 
+const sections = ['About', 'Skills', 'Projects']
 
-function Navbar() {
-    const [isOpen, setIsOpen] = useState(false)
-    const screenWidth = window.innerWidth;
-    const navLinks = ["HOME", "ABOUT", "SKILLS", "PROJECTS", "CONTACT"]
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const header = useRef(null)
+  const toggle = useRef(null)
 
-    return (
-        <div className='fixed h-20 md:h-25 top-0 left-0 right-0 z-50'>
-            <motion.nav
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className='bg-gray-800 z-99 audiowide fixed rounded-full w-29/30 mt-4 left-1/2 -translate-x-1/2 pr-4 py-2 outline-3 outline-offset-2 outline-solid outline-[#cc2bfb]'>
-                {
-                    screenWidth > 640 ? (
-                        <div className="h-12 md:h-16 items-center flex justify-between">
-                            <motion.a initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "backInOut", delay: 0.5 }} className='flex items-center justify-start cursor-pointer' href="#">
-                                <img src={profile} alt="" className="w-15 md:w-19 relative -top-2 left-1" />
-                                <h1 className='text-xl md:text-3xl text-[#cc2bfb] pl-2 font-medium' href="#">SHARAFATH</h1>
-                            </motion.a>
-                            <div className='hidden sm:block font-medium'>
-                                {navLinks.map((link) => (
-                                    <motion.a
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.8, delay: 0.3 * navLinks.indexOf(link), ease: "easeIn" }}
-                                        key={link}
-                                        className='relative text-gray-400 text-base md:text-lg mx-2 cursor-pointer hover:text-white transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#cc2bfb] hover:after:w-full after:transition-all after:duration-300 active:text-[#cc2bfb]'
-                                        href={`#${link.toLowerCase()}`}
-                                    >
-                                        {link}
-                                    </motion.a>
-                                ))}
-                            </div>
-                        </div>
-                    ) : (
-                        <div>
-                            <div className="h-12 items-center flex justify-between" >
-                                <a className='flex items-center justify-start cursor-pointer' href="#">
-                                    <img src={profile} alt="" className="w-15 md:w-19 relative -top-2 left-1 " />
-                                    <h1 className='text-2xl md:text-3xl text-[#cc2bfb] pl-2 font-medium' href="#">SHARAFATH</h1>
-                                </a>
-                                <div className="px-4 text-3xl text-white block sm:hidden">
-                                    <Menu onClick={() => setIsOpen(true)} />
-                                </div>
+  useEffect(() => {
+    if (!menuOpen) return
+    function dismissOutside(event) {
+      if (!header.current.contains(event.target)) setMenuOpen(false)
+    }
+    function dismissOnEscape(event) {
+      if (event.key === 'Escape') {
+        setMenuOpen(false)
+        toggle.current.focus()
+      }
+    }
+    const desktop = matchMedia('(min-width: 721px)')
+    const close = () => setMenuOpen(false)
+    document.addEventListener('pointerdown', dismissOutside)
+    document.addEventListener('keydown', dismissOnEscape)
+    window.addEventListener('hashchange', close)
+    desktop.addEventListener('change', close)
+    return () => {
+      document.removeEventListener('pointerdown', dismissOutside)
+      document.removeEventListener('keydown', dismissOnEscape)
+      window.removeEventListener('hashchange', close)
+      desktop.removeEventListener('change', close)
+    }
+  }, [menuOpen])
 
-                                <AnimatePresence>
-                                    {isOpen && (
-                                        <motion.div
-                                            key="sidebar"
-                                            initial={{ x: "100%", y: "-25%" }}
-                                            animate={{ x: "1.5%", y: "-25%" }}
-                                            exit={{ x: "100%", y: "-25%" }}
-                                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                                            className="fixed inset-0 z-50"
-                                        >
-                                            {/* Close Button */}
-                                            <X
-                                                onClick={() => setIsOpen(false)}
-                                                className="fixed top-10 right-10 z-[60] text-white cursor-pointer"
-                                            />
-
-                                            {/* Sidebar Content */}
-                                            <div className="block sm:hidden bg-gray-800 border-2 border-[#cc2bfb] space-y-8 p-10 pt-[50%] absolute top-0 right-0 h-screen w-2/3 text-center rounded-lg">
-
-                                                <a className="text-gray-100 text-3xl" href="#home">HOME</a>
-                                                <hr className="border-[#cc2bfb]" />
-
-                                                <a className="text-gray-100 text-3xl" href="#about">ABOUT</a>
-                                                <hr className="border-[#cc2bfb]" />
-
-                                                <a className="text-gray-100 text-3xl" href="#skills">SKILLS</a>
-                                                <hr className="border-[#cc2bfb]" />
-
-                                                <a className="text-gray-100 text-3xl" href="#projects">PROJECTS</a>
-                                                <hr className="border-[#cc2bfb]" />
-
-                                                <a className="text-gray-100 text-3xl" href="#contact">CONTACT</a>
-                                                <hr className="border-[#cc2bfb]" />
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-
-                        </div>
-                    )
-                }
-            </motion.nav >
-
+  return (
+    <header ref={header} className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-2 bg-home-base/90 p-home-gutter leading-[normal] backdrop-blur-md"
+      onBlur={event => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setMenuOpen(false)
+      }}>
+      <a href="#home" onClick={() => setMenuOpen(false)}
+        className="flex items-center gap-2.5 text-[17px] font-medium tracking-[-.01em] home-compact:text-[15px]">
+        <span aria-hidden="true" className="grid size-[34px] shrink-0 place-items-center rounded-[9px] bg-home-accent text-home-accent-ink home-compact:size-[30px] home-compact:rounded-lg">
+          <svg className="size-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+            <path d="M2 5h20L12 21z M7 8h10l-5 8z" />
+          </svg>
+        </span>
+        Sharafath Ahammed V
+      </a>
+      <nav aria-label="Portfolio" className="flex items-center gap-[clamp(14px,2vw,28px)] text-[16px] home-compact:gap-2 home-compact:text-[15px]">
+        <button ref={toggle} type="button" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={menuOpen} aria-controls="section-links" onClick={() => setMenuOpen(!menuOpen)}
+          className="hidden size-10 cursor-pointer place-items-center rounded-[10px] text-home-muted hover:bg-home-panel hover:text-home-ink home-compact:grid">
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+        <div id="section-links" className={`flex items-center gap-[clamp(14px,2vw,28px)] text-home-muted
+          home-compact:absolute home-compact:top-full home-compact:right-home-gutter home-compact:min-w-44 home-compact:flex-col
+          home-compact:items-stretch home-compact:gap-0 home-compact:rounded-2xl home-compact:border home-compact:border-home-line
+          home-compact:bg-home-surface home-compact:p-2 home-compact:shadow-xl ${menuOpen ? '' : 'home-compact:hidden'}`}>
+          {sections.map(label => (
+            <a key={label} href={`#${label.toLowerCase()}`} onClick={() => setMenuOpen(false)}
+              className="hover:text-home-ink home-compact:rounded-lg home-compact:px-4 home-compact:py-3 home-compact:hover:bg-home-panel">{label}</a>
+          ))}
         </div>
-    )
+        <a href="#contact" onClick={() => setMenuOpen(false)} className="primary-action gap-1.5 whitespace-nowrap text-[15px] home-compact:px-3.5 home-compact:py-[9px] home-compact:text-[14px]">
+          Say hi! <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+      <ProgressBar />
+    </header>
+  )
 }
-
-export default Navbar

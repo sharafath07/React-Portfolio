@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Loading from './components/Loading'
 import Page from './components/Page'
+import Cursor from './components/Cursor'
 import { AnimatePresence } from "framer-motion";
 
 function App() {
@@ -9,16 +10,19 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 5000)
+    }, 300)
     return () => clearTimeout(timer)
   }, [])
 
 
 
   return (
-    <AnimatePresence mode="wait">
-      {isLoading ? <Loading key="loader" /> : <Page key="home" />}
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading ? <Loading key="loader" /> : <Page key="home" />}
+      </AnimatePresence>
+      <Cursor />
+    </>
     // <Page />
   )
 }

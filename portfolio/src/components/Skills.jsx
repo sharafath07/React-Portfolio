@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import html from '../assets/skills/html.png'
 import css from '../assets/skills/css.png'
 import js from '../assets/skills/js.png'
@@ -7,7 +6,6 @@ import git from '../assets/skills/git.svg'
 import github from '../assets/skills/github.png'
 import tailwind from '../assets/skills/tailwind-css.png'
 import bootstrap from '../assets/skills/bootstrap.svg'
-import { motion } from 'framer-motion'
 
 function Skills() {
     const skills = [
@@ -22,21 +20,18 @@ function Skills() {
     ];
 
     return (
-        <div className="bg-linear-150 from-[#cc2bfb] from-0% via-black via-50% to-[#cc2bfb] to-100%">
-            <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} viewport={{ amount: 0.3, once: true }} id='skills' className='h-screen orbitron w-screen flex items-center justify-center relative overflow-hidden'>
-                <div>
-                    <h1 className='text-3xl md:text-5xl text-center mb-10 font-bold text-[#cc2bfb] mb-6 underline underline-offset-8 decoration'>Skills</h1>
-                    <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-                        {skills.map((skill, index) => (
-                            <div key={index} className='flex flex-col items-center border border-[#cc2bfb] rounded-lg p-4 hover:bg-[#2a2a2a] transition duration-300'>
-                                <img src={skill.image} alt={skill.name} className='w-16 h-16 mb-2 contain' />
-                                <p className='text-lg font-semibold text-gray-500'>{skill.name}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </motion.div>
-        </div>
+        <section id="skills" aria-labelledby="skills-title" className="section-wrap">
+            <h2 id="skills-title" className="section-title">Skills</h2>
+            <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+                {skills.map(skill => (
+                    <li key={skill.name} className="flex min-h-24 items-center gap-3 rounded-2xl border border-home-line bg-home-panel p-4 sm:gap-4 sm:p-6">
+                        <img src={skill.image} alt="" loading="lazy" width="40" height="40"
+                            className="size-8 shrink-0 object-contain sm:size-10" />
+                        <span className="font-medium tracking-tight sm:text-lg">{skill.name}</span>
+                    </li>
+                ))}
+            </ul>
+        </section>
     )
 }
 
